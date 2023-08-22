@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado del Analizador Léxico</title>
+    <th:block th:include="base.html"></th:block>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light justify-content-center">
+    <div class="container bg-white rounded p-4 shadow">
+        <h2 class="mb-3">Resultado del Análisis Léxico</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Token</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="token : ${tokens}">
+                    <td th:text="${token.value}"></td>
+                    <td th:text="${token.type}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis Sintético Léxico</title>
+    <th:block th:include="base.html"></th:block>
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light justify-content-center">
+    <form th:action="@{/analizadorLexico}" method="POST" enctype="multipart/form-data"
+            onsubmit="return analizar();"> 
+    <div class="container bg-white rounded p-4 shadow" id="divGeneral">
+        <h1 class="display-4 text-center mb-4">Lixsin-Analizador Léxico</h1>
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-between">
+                <button class="btn btn-primary">Leer</button>
+                <button class="btn btn-secondary">Generar Token´s</button>
+                
+                <button type="submit" class="btn btn-success">Compilar</button>
+                 
+                <button class="btn btn-danger">Tabla de Token´s</button>
+            </div>
+        </div>
+            
+            <div class="col text-center">
+                <textarea name="inputText" class="form-control mb-5 border border-dark" rows="10"
+                    placeholder="Ingresa tu texto aquí"></textarea>
+                    <textarea name="inputTextSmall" class="form-control mb-5 border border-dark" rows="1"
+                    placeholder="Ingresa tu texto aquí"></textarea>
+            </div>
+            
+    </div>
+</form>
+
+    <div class="d-none col-lg-12 mb-4 justify-content-center align-self-center"  id="divCargando">
+        <div class="card mb-3 border-0">
+            <div
+                class="row no-gutters h-100 p-5"
+                style="background-color: #5B9CFD">
+                <div class="col-10 justify-content-center align-self-center">
+                    <p class="h4 text-center py-1 text-white">
+                        Estamos procesando el analizador lexico...
+                        <c:out value="${telefonica}" />
+                    </p>
+                    <p class="h4 text-center py-1 text-white">
+                        <small>Por favor espera...</small>
+                    </p>
+                </div>
+                <div
+                    class="col-md-2 justify-content-center align-items-center d-flex">
+                    <img th:src="@{/img/loading.gif}" alt="loading"
+                        class="card-img-top p-5"
+                        style="max-height: 220px; max-width: 220px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <footer class="text-center p-3 bg-light">
+        Powered and Designed by Esdras Abel Sapon Diaz
+    </footer>
+
+
+</body>
+
+</html>

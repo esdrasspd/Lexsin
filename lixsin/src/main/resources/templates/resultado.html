@@ -2,12 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado del Analizador Léxico</title>
+    <title>Resultado del Analizador Léxico y Sintáctico</title>
     <th:block th:include="base.html"></th:block>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light justify-content-center">
     <div class="container bg-white rounded p-4 shadow">
-        <h2 class="mb-3">Resultado del Análisis Léxico</h2>
+        <h2 class="mb-3">Resultado del Análisis Léxico y Sintáctico</h2>
+
+        <div th:if="${esHolaMundo}">
+            <p class="alert alert-success">El código tiene una sintaxis correcta de C++.</p>
+        </div>
+        <div th:unless="${esHolaMundo}">
+            <p class="alert alert-warning">El código no tiene una sintaxis correcta de C++.</p>
+        </div>
+
+        <h3 class="mt-4">Resultado del Análisis Léxico</h3>
         <table class="table">
             <thead>
                 <tr>
@@ -23,6 +32,5 @@
             </tbody>
         </table>
     </div>
-
 </body>
 </html>

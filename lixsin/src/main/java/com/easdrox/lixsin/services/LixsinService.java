@@ -19,4 +19,8 @@ public class LixsinService {
         List<Token> tokens = lixsinDao.analizadorLexico(model, inputText);
         return tokens;
     }
+
+    public boolean analizadorSintactico(List<Token> tokens, Model model, String inputText) {
+        return lixsinDao.analizadorSintactico(tokens, model, inputText);
+    }
 }

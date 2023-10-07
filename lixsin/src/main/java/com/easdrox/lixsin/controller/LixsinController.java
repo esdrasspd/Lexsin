@@ -24,10 +24,16 @@ public class LixsinController {
         return "index";
     }
 
-    @PostMapping("/analizadorLexico")
-    public String analizadorLexico(@RequestParam("inputText") String inputText, Model model) throws InterruptedException{
+    @PostMapping("/analizadorLexicoSintactico")
+    public String analizadorLexicoSintactico(@RequestParam("inputText") String inputText, Model model) throws InterruptedException {
         List<Token> tokens = lixsinService.analizadorLexico(model, inputText);
+
+        // Realizar el análisis sintáctico
+        boolean esHolaMundo = lixsinService.analizadorSintactico(tokens, model, inputText);
+
         model.addAttribute("tokens", tokens);
+        model.addAttribute("esHolaMundo", esHolaMundo);
+
         Thread.sleep(1500);
         return "resultado";
     }

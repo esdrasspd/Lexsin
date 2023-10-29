@@ -7,14 +7,16 @@ public class Token {
         RESERVED_KEYWORD, 
         STRING_LITERAL, 
         NUMBER, 
+        DOUBLE_QUOTE,
         OTHER
     }
     private Type type;
     private String value;
 
-    public Token(String value) {
+    public Token(String value, Type type) {
         super();
         this.value = value;
+        this.type = type;
     }
 
     public Token(){

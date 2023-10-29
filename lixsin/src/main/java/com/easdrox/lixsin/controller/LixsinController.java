@@ -42,6 +42,23 @@ public class LixsinController {
     public String resultado(){
         return "resultado";
     }
+
+    @PostMapping("/resultadoCompilacion")
+    public String resultadoCompilacion(@RequestParam("inputText") String inputText, Model model) throws InterruptedException {
+        List<Token> tokens = lixsinService.analizadorLexico(model, inputText);
+        System.out.println("hola");
+        // Realizar el análisis sintáctico
+        boolean esHolaMundo = lixsinService.analizadorSintactico(tokens, model, inputText);
+
+        if(esHolaMundo){
+            model.addAttribute("error", "No hay errores de sintaxis." );
+        }
+
+        model.addAttribute("texto", inputText);
+
+        System.out.println("termino acaaa!!!" + esHolaMundo);
+        return "index";
+    }
    
     
 }
